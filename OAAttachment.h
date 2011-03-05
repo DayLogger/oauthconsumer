@@ -10,14 +10,10 @@
 
 
 @interface OAAttachment : NSObject {
-	NSString *name;
-	NSString *fileName;
-	NSString *contentType;
-	NSData *data;
 }
 
 @property (nonatomic, copy) NSString *name;
-@property (nonatomic, copy) NSString *fileName;
+@property (nonatomic, copy) NSString *filename;
 @property (nonatomic, copy) NSString *contentType;
 @property (nonatomic, copy) NSData *data;
 
