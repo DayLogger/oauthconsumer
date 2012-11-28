@@ -29,6 +29,7 @@
 @protected
 	NSString *key;
 	NSString *secret;
+    NSString *verifier;
 	NSString *session;
 	NSNumber *duration;
 	NSMutableDictionary *attributes;
@@ -38,6 +39,7 @@
 }
 @property(retain, readwrite) NSString *key;
 @property(retain, readwrite) NSString *secret;
+@property(retain, readwrite) NSString *verifier;
 @property(retain, readwrite) NSString *session;
 @property(retain, readwrite) NSNumber *duration;
 @property(retain, readwrite) NSMutableDictionary *attributes;

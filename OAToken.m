@@ -39,7 +39,7 @@
 
 @implementation OAToken
 
-@synthesize key, secret, session, duration, forRenewal;
+@synthesize key, secret, verifier, session, duration, forRenewal;
 
 #pragma mark init
 
@@ -224,6 +224,9 @@
 
 	if (key) {
 		[params setObject:key forKey:@"oauth_token"];
+        if (self.verifier) {
+            [params setObject:verifier forKey:@"oauth_verifier"];
+        }
 		if ([self isForRenewal]) {
 			[params setObject:session forKey:@"oauth_session_handle"];
 		}
