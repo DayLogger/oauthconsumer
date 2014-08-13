@@ -31,7 +31,7 @@
 @synthesize name, value;
 
 - (id)initWithName:(NSString *)aName value:(NSString *)aValue {
-    [super init];
+    if (!(self = [super init])) return nil;
     self.name = aName;
     self.value = aValue;
     return self;
@@ -66,7 +66,7 @@
 
 + (id)requestParameter:(NSString *)aName value:(NSString *)aValue
 {
-	return [[[self alloc] initWithName:aName value:aValue] autorelease];
+	return [[self alloc] initWithName:aName value:aValue];
 }
 
 @end

@@ -23,12 +23,5 @@
 	return self;
 }
 
-- (void)dealloc{
-	[name release];
-	[filename release];
-	[contentType release];
-	[data release];
-	[super dealloc];
-}
 
 @end

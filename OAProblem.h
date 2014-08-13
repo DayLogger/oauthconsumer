@@ -22,10 +22,10 @@ enum {
 };
 
 @interface OAProblem : NSObject {
-	const NSString *problem;
+	const NSString *__weak problem;
 }
 
-@property (readonly) const NSString *problem;
+@property (weak, readonly) const NSString *problem;
 
 - (id)initWithProblem:(const NSString *)aProblem;
 - (id)initWithResponseBody:(const NSString *)response;
