@@ -175,9 +175,4 @@ signatureProvider:(id<OASignatureProviding, NSObject>)aProvider
             [normalizedRequestParameters encodedURLString]];
 }
 
-- (void) dealloc
-{
-	CFRelease((__bridge CFTypeRef)(nonce));
-}
-
 @end
