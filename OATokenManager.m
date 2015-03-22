@@ -132,10 +132,16 @@
 	SEL selector = [self getSelector:call];
 	id deleg = [delegates objectForKey:[NSString stringWithFormat:@"%p", call]];
 	if (deleg) {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
 		[deleg performSelector:selector withObject:body];
+#pragma clang diagnostic pop
 		[delegates removeObjectForKey:call];
 	} else {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
 		[delegate performSelector:selector withObject:body];
+#pragma clang diagnostic pop
 	}
 	@synchronized(self) {
 		isDispatching = NO;

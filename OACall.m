@@ -96,7 +96,10 @@
 	self.ticket = aTicket;
 	if (ticket.didSucceed) {
 //		NSLog(@"Call body: %@", ticket.body);
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
 		[delegate performSelector:finishedSelector withObject:self withObject:ticket.body];
+#pragma clang diagnostic pop
 	} else {
 //		NSLog(@"Failed call body: %@", ticket.body);
 		[self callFailed:ticket withError:nil];

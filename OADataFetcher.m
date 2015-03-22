@@ -48,7 +48,10 @@
 																  data:responseData
 															didSucceed:NO];
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
 	[delegate performSelector:didFailSelector withObject:ticket withObject:error];
+#pragma clang diagnostic pop
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
@@ -61,7 +64,10 @@
 																  data:responseData
 															didSucceed:[(NSHTTPURLResponse *)response statusCode] < 400];
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
 	[delegate performSelector:didFinishSelector withObject:ticket withObject:responseData];
+#pragma clang diagnostic pop
 }
 
 - (void)fetchDataWithRequest:(OAMutableURLRequest *)aRequest delegate:(id)aDelegate didFinishSelector:(SEL)finishSelector didFailSelector:(SEL)failSelector {
